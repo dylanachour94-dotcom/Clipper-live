@@ -1,0 +1,21 @@
+# Réglages du robot de clips. Après une modification : sudo systemctl restart clipper
+
+# Les chaînes Twitch à surveiller (le nom qui est dans l'adresse twitch.tv/...)
+streamers = ["michou", "gotaga", "aminematue", "inoxtag", "jltomy"]
+
+# Détection des pics du chat
+fenetre_s = 10            # on compte les messages toutes les 10 secondes
+reference_min = 5         # la « normale » = médiane des 5 dernières minutes
+multiplicateur = 2.5      # pic si 2,5 fois plus de messages que la normale...
+minimum_messages = 25     # ...et au moins 25 messages dans les 10 secondes
+part_mots_cles = 0.35     # ou si plus de 35 % des messages sont des rires/réactions (et 1,5 fois la normale)
+mots_cles = ["mdr", "ptdr", "kekw", "lul", "omg", "???", "wtf", "ahah", "pog", "jpp", "😂", "💀"]
+pause_entre_clips_s = 60  # pas deux clips du même streamer à moins d'1 minute
+
+# Le clip
+avant_s = 20              # secondes gardées avant le pic
+apres_s = 10              # secondes gardées après le pic
+latence_video_s = 8       # retard de la vidéo sur le chat : augmente si le clip coupe trop tôt, baisse s'il commence trop tard
+qualite = "720p60,720p,best"
+vertical = true           # format 9:16 (fond flou + vidéo au centre)
+sous_titres = false       # sous-titres automatiques (plus lent) : mettre true pour les activer
